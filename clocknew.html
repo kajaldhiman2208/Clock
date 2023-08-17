@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://kit.fontawesome.com/5b601e5b36.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLOCK</title>
+  <link rel="icon" href="file:///C:/Users/Dell/AppData/Local/Temp/Temp1_favicon_io.zip/favicon-32x32.png"
+    type="image/x-icon">
+  <style>
+    .Main {
+      background-color:black;
+      height: 100vh;
+      width: 100%;
+
+      align-items: center;
+
+    }
+
+    .clkbox {
+      height: 400px;
+      width: 70%;
+      background-color: #505D58;
+      position: relative;
+      left: 250px;
+      top: 100px;
+      border-radius: 30px;
+    }
+
+    .clkbox1 {
+      height: 300px;
+      width: 80%;
+      background-color:#72383D ;
+      position: relative;
+      left: 100px;
+      top: 50px;
+      /* border-radius:30px; */
+
+    }
+
+    #hrs {
+      height: 65%;
+      width: 20%;
+      background-color: #F3F0E9;
+      text-align: center;
+      font-size: 150px;
+      position: relative;
+      top: 40px;
+      left: 90px;
+    }
+
+    #min {
+      height: 65%;
+      width: 20%;
+      background-color: #F3F0E9;
+      text-align: center;
+      font-size: 150px;
+      position: absolute;
+      top: 40px;
+      left: 350px;
+    }
+
+    #sec {
+      height: 65%;
+      width: 20%;
+      background-color: #F3F0E9;
+      text-align: center;
+      font-size: 150px;
+      position: absolute;
+      top: 40px;
+      left: 610px;
+    }
+
+    .hours {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      left: 150px;
+      font-size: 20px;
+    }
+
+    .minutes {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      left: 47%;
+      font-size: 20px;
+    }
+
+    .seconds {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      left: 77%;
+      font-size: 20px;
+    }
+    @media(max-width:100px){
+      .hours,.minutes,.seconds{
+        width:100%;
+        height:auto;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="Main">
+
+    <div class="clkbox">
+      <div class="clkbox1">
+        <div id="hrs">00</div>
+        <div class="hours">Hours</div>
+        <div id="min">00</div>
+        <div class="minutes">Minutes</div>
+        <div id="sec">00</div>
+        <div class="seconds">Seconds</div>
+      </div>
+
+
+
+
+
+      <script>
+
+        const hrs = document.getElementById("hrs");
+        const min = document.getElementById("min");
+        const sec = document.getElementById("sec");
+
+        document.getElementById("hrs").innerText = new Date().getHours();
+        function update() {
+          const k = new Date();
+          let h = k.getHours("hrs");
+          let m = k.getMinutes("min");
+          let s = k.getSeconds("sec");
+
+          hrs.innerHTML = h;
+          min.innerHTML = m;
+          sec.innerHTML = s;
+
+
+          setTimeout(() => {
+            update();
+          }, 1000)
+
+        }
+        update();
+
+
+
+
+      </script>
+</body>
+
+</html>
